@@ -5,6 +5,7 @@ use Laravel\Nova\Nova;
 use Laravel\Nova\Tool;
 use Eminiarts\NovaPermissions\Nova\Role;
 use Eminiarts\NovaPermissions\Nova\Permission;
+use Illuminate\Http\Request;
 
 class NovaPermissions extends Tool
 {
@@ -74,5 +75,15 @@ class NovaPermissions extends Tool
         $this->roleResource = $roleResource;
 
         return $this;
+    }
+
+    /**
+     * Nova 4 Tool requires this
+     * @param Illuminate\Http\Request $request 
+     * @return string 
+     */
+    public function menu(Request $request)
+    {
+        return 'permission';
     }
 }
